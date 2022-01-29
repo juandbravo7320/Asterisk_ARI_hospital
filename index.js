@@ -38,7 +38,7 @@ client.connect('http://localhost:8088', 'asterisk', 'asterisk', function (err, a
 
     incoming.on('ChannelDtmfReceived', introMenu);
 
-    function introMenu(event, channel) {
+    async function introMenu(event, channel) {
 
       const digit = event.digit;
 
@@ -214,8 +214,6 @@ client.connect('http://localhost:8088', 'asterisk', 'asterisk', function (err, a
         datosCita = '';
 
         //play(incoming, 'sound:vm-goodbye');//Confirmacion de datos
-
-        incoming.removeListener('ChannelDtmfReceived', agendarCita);
 
         break;
 
